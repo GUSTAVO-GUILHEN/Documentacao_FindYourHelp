@@ -1,1 +1,180 @@
-{"swagger":"2.0","info":{"description":"API do Projeto Integrador Generation Brasil","version":"1.0","title":"Projeto Integrador-Find Your Help","contact":{"name":"Projeto Integrador desenvolvido por: Andressa Ferreira, Athos Mesquita, Carolina Guida, Gustavo Guilhen, Maria Nazaré, Osvaldo Velasco, Tatiane Antunes ","url":"https://github.com/athosgpm/ProjetoIntegrador_findYourHelp","email":"Desenvolvedores Java Jr Full Stack"}},"host":"localhost:8080","basePath":"/","tags":[{"name":"tema-controller","description":"Tema Controller"},{"name":"postagem-controller","description":"Postagem Controller"},{"name":"usuario-controller","description":"Usuario Controller"},{"name":"comentario-postagem-controller","description":"Comentario Postagem Controller"}],"paths":{"/comentarios":{"get":{"tags":["comentario-postagem-controller"],"summary":"GetAll","operationId":"GetAllUsingGET","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/ComentarioPostagem"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["comentario-postagem-controller"],"summary":"post","operationId":"postUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"comentario","description":"comentario","required":true,"schema":{"$ref":"#/definitions/ComentarioPostagem"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ComentarioPostagem"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["comentario-postagem-controller"],"summary":"put","operationId":"putUsingPUT","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"comentario","description":"comentario","required":true,"schema":{"$ref":"#/definitions/ComentarioPostagem"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ComentarioPostagem"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/comentarios/{id}":{"get":{"tags":["comentario-postagem-controller"],"summary":"GetById","operationId":"GetByIdUsingGET","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"idComentario","in":"path","description":"idComentario","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ComentarioPostagem"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"delete":{"tags":["comentario-postagem-controller"],"summary":"delete","operationId":"deleteUsingDELETE","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"401":{"description":"Unauthorized"},"204":{"description":"No Content"},"403":{"description":"Forbidden"}}}},"/postagens":{"get":{"tags":["postagem-controller"],"summary":"GetAll","operationId":"GetAllUsingGET_1","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/Postagem"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["postagem-controller"],"summary":"post","operationId":"postUsingPOST_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"postagem","description":"postagem","required":true,"schema":{"$ref":"#/definitions/Postagem"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Postagem"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["postagem-controller"],"summary":"put","operationId":"putUsingPUT_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"postagem","description":"postagem","required":true,"schema":{"$ref":"#/definitions/Postagem"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Postagem"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/postagens/tipo/postagem/portipo/{tipoAjudaPostagem}":{"get":{"tags":["postagem-controller"],"summary":"GetByTipo","operationId":"GetByTipoUsingGET","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"tipoAjudaPostagem","in":"path","description":"tipoAjudaPostagem","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/Postagem"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/postagens/tituloPostagem/{tituloPostagem}":{"get":{"tags":["postagem-controller"],"summary":"GetByTitulo","operationId":"GetByTituloUsingGET","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"tituloPostagem","in":"path","description":"tituloPostagem","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/Postagem"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/postagens/{idPostagem}":{"get":{"tags":["postagem-controller"],"summary":"GetById","operationId":"GetByIdUsingGET_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"idPostagem","in":"path","description":"idPostagem","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Postagem"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"delete":{"tags":["postagem-controller"],"summary":"delete","operationId":"deleteUsingDELETE_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"idPostagem","in":"path","description":"idPostagem","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"401":{"description":"Unauthorized"},"204":{"description":"No Content"},"403":{"description":"Forbidden"}}}},"/tema":{"get":{"tags":["tema-controller"],"summary":"getAll","operationId":"getAllUsingGET","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/Tema"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["tema-controller"],"summary":"post","operationId":"postUsingPOST_2","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"tema","description":"tema","required":true,"schema":{"$ref":"#/definitions/Tema"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Tema"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["tema-controller"],"summary":"put","operationId":"putUsingPUT_2","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"tema","description":"tema","required":true,"schema":{"$ref":"#/definitions/Tema"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Tema"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/tema/categoriaTema/{categoriaTema}":{"get":{"tags":["tema-controller"],"summary":"getByName","operationId":"getByNameUsingGET","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"categoriaTema","in":"path","description":"categoriaTema","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/Tema"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/tema/{idTema}":{"get":{"tags":["tema-controller"],"summary":"getById","operationId":"getByIdUsingGET","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"idTema","in":"path","description":"idTema","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Tema"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"delete":{"tags":["tema-controller"],"summary":"delete","operationId":"deleteUsingDELETE_2","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"idTema","in":"path","description":"idTema","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"401":{"description":"Unauthorized"},"204":{"description":"No Content"},"403":{"description":"Forbidden"}}}},"/usuarios":{"get":{"tags":["usuario-controller"],"summary":"getAll","operationId":"getAllUsingGET_1","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/Usuario"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["usuario-controller"],"summary":"put","operationId":"putUsingPUT_3","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"usuario","description":"usuario","required":true,"schema":{"$ref":"#/definitions/Usuario"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Usuario"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/usuarios/cadastrar":{"post":{"tags":["usuario-controller"],"summary":"Post","operationId":"PostUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"usuario","description":"usuario","required":true,"schema":{"$ref":"#/definitions/Usuario"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Usuario"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/usuarios/logar":{"post":{"tags":["usuario-controller"],"summary":"Autentication","operationId":"AutenticationUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"user","description":"user","required":false,"schema":{"$ref":"#/definitions/Optional«UserLogin»"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/UserLogin"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/usuarios/{id}":{"get":{"tags":["usuario-controller"],"summary":"getById","operationId":"getByIdUsingGET_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Usuario"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}}},"definitions":{"ComentarioPostagem":{"type":"object","properties":{"comentario":{"type":"string"},"dataComentario":{"type":"string","format":"date-time"},"idComentario":{"type":"integer","format":"int64"},"postagem":{"$ref":"#/definitions/Postagem"},"usuario":{"$ref":"#/definitions/Usuario"}}},"Optional«UserLogin»":{"type":"object","properties":{"empty":{"type":"boolean"},"present":{"type":"boolean"}}},"Postagem":{"type":"object","properties":{"comentario":{"type":"array","items":{"$ref":"#/definitions/ComentarioPostagem"}},"dataPostagem":{"type":"string","format":"date-time"},"descricaoPostagem":{"type":"string"},"idPostagem":{"type":"integer","format":"int64"},"tema":{"$ref":"#/definitions/Tema"},"tipoAjudaPostagem":{"type":"string"},"tituloPostagem":{"type":"string"},"urlImagemPostagem":{"type":"string"},"usuario":{"$ref":"#/definitions/Usuario"}}},"Tema":{"type":"object","properties":{"categoriaTema":{"type":"string"},"idTema":{"type":"integer","format":"int64"},"postagem":{"type":"array","items":{"$ref":"#/definitions/Postagem"}}}},"Usuario":{"type":"object","properties":{"comentario":{"type":"array","items":{"$ref":"#/definitions/ComentarioPostagem"}},"emailUsuario":{"type":"string"},"idUsuario":{"type":"integer","format":"int64"},"imagemUsuario":{"type":"string"},"nomeUsuario":{"type":"string"},"postagem":{"type":"array","items":{"$ref":"#/definitions/Postagem"}},"senhaUsuario":{"type":"string"},"telefoneUsuario":{"type":"string"},"tipoUsuario":{"type":"string"}}},"UserLogin":{"type":"object","properties":{"emailUsuario":{"type":"string"},"idUsuario":{"type":"integer","format":"int64"},"imagemUsuario":{"type":"string"},"nomeUsuario":{"type":"string"},"senhaUsuario":{"type":"string"},"telefoneUsuario":{"type":"string"},"tipoUsuario":{"type":"string"},"token":{"type":"string"}}}}}
+# Documentação Back-End
+
+## Sistema de Rede Social
+**Sistema realizado por: Andressa Ferreira, Athos Mesquita, Carolina Guida, Gustavo Guilhen, Maria Nazaré, Osvaldo Velasco, Tatiane Antunes**
+## Sobre
+O projeto consiste em uma `Rede Social` voltada para o público de classe média-baixa onde podem expor suas ideias de empreendedorismo e pessoas que gostarem da ideia podem se colabor, seja de forma financeira quanto com serviços prestados.
+
+## Tecnologias principais
+- Spring Boot
+- Spring Data
+- Spring Web
+- Spring Security
+- Swagger
+
+## Swagger
+[Aqui](LINK DO SWAGGER) você pode realizar a consulta da documentação do projeto, bem como realizar requisições por meio de nossos endpoints.
+
+## Tema
+
+ ### Model
+
+| Atributo | Tipo | Qtd. Caracteres |
+|----------|------|-----|
+| idTema | [PK] long |
+| descricaoTema | String | min = 5, max = 255
+| categoriaTema | String | min = 5, max = 50
+| postagem | List < Postagem > |
+
+
+| Atributo | Tipo |
+|----------|------|
+| idTema | [PK] long |
+| descricaoTema | String |
+| categoriaTema | String |
+| postagem | List < Postagem > |
+
+A tabela possuirá os atributos **ID** referente ao código de cada tema e **categoria** onde iremos inserir a temática: tecnologia, meio ambiente, projetos, financiamento, etc. Mais a lista de postagem da marcação @OneToMany.
+
+### CRUD
+ 
+| Métodos | End-points | Descrição |
+|----------|--------------|----------|
+| Get | /tema | Listar todos os temas existentes
+| Get | /tema/{idTema} | Listar tema específico pelo ID
+| Get | /tema/categoriaTema/{categoriaTema} | Listar um tema específico pela categoria
+| Post | /tema | Inserir os dados
+| Put | /tema | Editar algum dado específico
+| Delete | /tema/{idTema} | Excluir algum dado pelo ID
+
+A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois métodos específicos, que buscam pelo id e pela categoria.
+
+## Postagem
+
+ ### Model
+
+| Atributo | Tipo | Qtd. Caracteres |
+|----------|------|-----|
+| idPostagem | [PK] long |
+| tituloPostagem | String | min = 5, max = 50
+| dataPostagem | Date |
+| descricaoPostagem | String | min = 5, max = 255
+| urlImagemPostagem | String | min = 5, max = 255
+| usuario_id | [FK] long
+| tema_id | [FK] long
+
+A tabela possuirá os atributos **idPostagem**, **tituloPostagem**, **dataPostagem**, **descriçãoPostagem** e **urlImagemPostagem** referente a cada postagem, mais as chaves estrangeiras **usuario**  e **tema** onde irão fazer o link com esses.
+
+### CRUD
+ 
+| Métodos | End-points | Descrição |
+|----------|--------------|----------|
+| Get | /postagens | Listar todas as postagens existentes
+| Get | /postagens/{idPostagem} | Listar postagem específica pelo ID
+| Get | /postagens/tituloPostagem/{tituloPostagem} | Listar uma postagem específica pelo Título
+| Post | /postagens | Inserir os dados
+| Put | /postagens | Editar algum dado específico
+| Delete | /postagens/{idPostagem} | Excluir algum dado pelo ID
+
+A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois métodos específicos, que buscam pelo id e pelo título.
+
+## ComentarioPostagem
+
+ ### Model
+
+| Atributo | Tipo | Qtd. Caracteres |
+|----------|------|-----|
+| idComentario | [PK] long |
+| comentario | String | min = 0, max = 9999
+| usuario_id | [FK] long
+| postagem_id | [FK] long
+
+A tabela possuirá os atributos **idComentario** e **comentarios** referente a cada comentário, mais as chaves estrangeiras **usuario**  e **postagem** onde irão fazer o link com esses.
+
+### CRUD
+ 
+| Métodos | End-points | Descrição |
+|----------|--------------|----------|
+| Get | /comentarios| Listar todos os comentários existentes
+| Get | /comentarios/{id} | Listar comentário específico pelo ID
+| Post | /comentarios | Inserir os dados
+| Put | /comentarios | Editar algum dado específico
+| Delete | /comentarios/{id} | Excluir algum dado pelo ID
+
+A tabela possuirá os end-points básicos (get, post, put e delete) e mais um método específico, que busca pelo id.
+
+## Usuário
+
+ ### Model
+
+| Atributo | Tipo | Qtd. Caracteres |
+|----------|------|-----------------|
+| idUsuario | [PK] long 
+| nomeUsuario | String | min = 2, max = 12
+| emailUsuario | String | min = 5, max = 100
+| senhaUsuario | String |  min = 2, max = 100
+| imagemUsuario | String |
+| tipoUsuario | String |
+| telefoneUsuario | String |
+
+A tabela possuirá os atributos **ID** referente ao código de cada usuário, **nomeUsuario**, **emailUsuario**, **senhaUsuario**, **imagemUsuario**, **tipoUsuario** e **telefoneUsuario**.
+
+### CRUD
+ 
+| Métodos | End-points | Descrição |
+|----------|--------------|----------|
+| Get | /usuario | Listar todos os usuários existentes
+| Get | /usuario/{id} | Listar usuário específico pelo ID
+| Post | /usuario/cadastrar | Cadastrar um novo usuário
+| Post | /usuario/logar | Logar um usuário existente
+| Put | /usuario | Editar algum dado específico
+
+Os caminhos para cadastrar e logar precisam de autenticação por token.
+
+### Model UserLogin (apenas para Login)
+| Atributo | Tipo | 
+|----------|------|
+| nomeUsuario | String |
+| emailUsuario | String | 
+| senhaUsuario | String |  
+| imagemUsuario | String |
+| tipoUsuario | String |
+| telefoneUsuario | String |
+| token | String |
+
+Criada a model ```UserLogin```, que devolve os dados do usuário logado com o token de autenticação.
+
+```UsuarioRepository``` com busca específica para determinado usuário.
+
+Criada a package ```Security``` com as classes ```BasicSecurityConfig```, ```UserDetailsImpl``` e ```UserDetailsServiceImpl```, aplicando as regras de negócio que foram determinadas na interface e restringindo a interação sem autenticação para os caminhos ```"/usuario/cadastrar"``` e ```"/usuario/logar"```.
+
+Criada a package ```Service``` com a classe ```UsuarioService``` que encripta a senha escolhida pelo usuário e guarda no banco de dados.
+
+
+### Json
+
+#### Enviando dados para cadastrar
+
+```json
+{
+    "nomeUsuario": "Gustavo",
+    "emailUsuario": "Gustavo@gmail.com",
+    "senhaUsuario": "123456",
+    "tipoUsuario": "Colaborador",
+    "telefoneUsuario": "00123451234"
+}
+```
+
+#### Recebendo dados para logar
+
+```json
+{
+    "nomeUsuario": "Gustavo",
+    "emailUsuario": "Gustavo@gmail.com",
+    "senhaUsuario": "123456",
+    "tipoUsuario": "Colaborador",
+    "telefoneUsuario": "00123451234",     
+    "token": "Basic R3VpbGhlbkBnbWFpbC5jb206MTIzNDU2"
+}
+``` 
+
