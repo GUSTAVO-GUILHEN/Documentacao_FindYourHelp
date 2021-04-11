@@ -1,7 +1,15 @@
 # Documentação Back-End
 
-## Sistema de Rede Social
-**Sistema realizado por: Andressa Ferreira, Athos Mesquita, Carolina Guida, Gustavo Guilhen, Maria Nazaré, Osvaldo Velasco, Tatiane Antunes**
+## Desenvolvedores
+
+- <a href = "https://github.com/Andressaffs"> Andressa Ferreira </a>
+- <a href = "https://github.com/athosgpm"> Athos Mesquita </a>
+- <a href = "https://github.com/Carolguida">Carolina Guida</a>
+- <a href = "https://github.com/GUSTAVO-GUILHEN">Gustavo de Souza Guilhen</a>
+- <a href = "https://github.com/MariaNazar">Maria Nazare</a>
+- <a href = "https://github.com/Velasco18">Osvaldo Velasco</a>
+- <a href = "https://github.com/tatiantunes">Tatiane Tissoni</a>
+
 ## Sobre
 O projeto consiste em uma `Rede Social` voltada para o público de classe média-baixa onde podem expor suas ideias de empreendedorismo e pessoas que gostarem da ideia podem se colabor, seja de forma financeira quanto com serviços prestados.
 
