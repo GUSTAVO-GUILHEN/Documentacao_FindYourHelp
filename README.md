@@ -4,7 +4,7 @@
 ## Sistema de Rede Social
 **Sistema realizado por: Andressa Ferreira, Athos Mesquita, Carolina Guida, Gustavo Guilhen, Maria Nazaré, Osvaldo Velasco, Tatiane Antunes**
 ## Sobre
-O projeto consiste em uma `Rede Social` voltada para o público de classe média-baixa onde podem expor suas ideias de empreendedorismo e pessoas que gostarem da ideia podem se colabor, seja de forma financeira quanto com serviços prestados.
+O projeto consiste em uma `Rede Social` voltada para o público de classe média-baixa onde podem expor suas ideias de empreendedorismo e pessoas que gostarem da ideia podem colaborar, seja de forma financeira quanto com serviços prestados.
 
 ## Tecnologias principais
 - Spring Boot
