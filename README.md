@@ -44,12 +44,15 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois 
 
 #### Post tema
 
+```json
 {
     "categoriaTema": "Inovação"
 }
+```
 
 #### Get tema
 
+```json
 [
     {
         "idTema": 1,
@@ -57,6 +60,7 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois 
         "postagem": []
     }
 ]
+```
 
 ## Postagem
 
@@ -93,15 +97,18 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois 
 
 #### Post postagens
 
+```json
 {
     "tituloPostagem": "Exemplo",
     "tipoAjudaPostagem": "Financeira",
     "urlImagemPostagem": "https://i.imgur.com/rc9U7wD.png",
     "descricaoPostagem": "Exemplo de descrição para a postagem."
 }
+```
 
 #### Get postagens 
 
+```json
 [
     {
         "idPostagem": 1,
@@ -115,6 +122,7 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois 
         "comentario": []
     }
 ]
+```
 
 ## ComentarioPostagem
 
@@ -146,12 +154,15 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais um m�
 
 #### Post comentarios
 
+```json
 {
     "comentario": "Exemplo de comentário para uma postagem."
 }
+```
 
 #### Get comentarios
 
+```json
 [
     {
         "idComentario": 1,
@@ -161,6 +172,7 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais um m�
         "postagem": null
     }
 ]
+```
 
 ## Usuário
 
