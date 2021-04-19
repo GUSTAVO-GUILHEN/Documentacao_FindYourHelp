@@ -1,4 +1,3 @@
-
 # Documentação Back-End
 
 ## Sistema de Rede Social
@@ -23,19 +22,10 @@ O projeto consiste em uma `Rede Social` voltada para o público de classe média
 | Atributo | Tipo | Qtd. Caracteres |
 |----------|------|-----|
 | idTema | [PK] long |
-| descricaoTema | String | min = 5, max = 255
 | categoriaTema | String | min = 5, max = 50
 | postagem | List < Postagem > |
 
-
-| Atributo | Tipo |
-|----------|------|
-| idTema | [PK] long |
-| descricaoTema | String |
-| categoriaTema | String |
-| postagem | List < Postagem > |
-
-A tabela possuirá os atributos **ID** referente ao código de cada tema e **categoria** onde iremos inserir a temática: tecnologia, meio ambiente, projetos, financiamento, etc. Mais a lista de postagem da marcação @OneToMany.
+A tabela possuirá os atributos **ID** referente ao código de cada tema e **categoria** onde o usuário com o perfil `Empreendedor` poderá ser inserida a temática: tecnologia, meio ambiente, projetos, financiamento, etc. Mais a lista de postagem com a marcação @OneToMany.
 
 ### CRUD
  
@@ -50,6 +40,24 @@ A tabela possuirá os atributos **ID** referente ao código de cada tema e **cat
 
 A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois métodos específicos, que buscam pelo id e pela categoria.
 
+### Json
+
+#### Post tema
+
+{
+    "categoriaTema": "Inovação"
+}
+
+#### Get tema
+
+[
+    {
+        "idTema": 1,
+        "categoriaTema": "Inovação",
+        "postagem": []
+    }
+]
+
 ## Postagem
 
  ### Model
@@ -58,13 +66,15 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois 
 |----------|------|-----|
 | idPostagem | [PK] long |
 | tituloPostagem | String | min = 5, max = 50
-| dataPostagem | Date |
-| descricaoPostagem | String | min = 5, max = 255
+| tipoAjudaPostagem | String | min = 1, max = 50
 | urlImagemPostagem | String | min = 5, max = 255
-| usuario_id | [FK] long
+| descricaoPostagem | String | min = 5, max = 255
+| dataPostagem | Date |
 | tema_id | [FK] long
+| usuario_id | [FK] long
+| comentario_id | [FK] long
 
-A tabela possuirá os atributos **idPostagem**, **tituloPostagem**, **dataPostagem**, **descriçãoPostagem** e **urlImagemPostagem** referente a cada postagem, mais as chaves estrangeiras **usuario**  e **tema** onde irão fazer o link com esses.
+A tabela possuirá os atributos **idPostagem**, **tituloPostagem**, **tipoAjudaPostagem**, **urlImagemPostagem**, **descriçãoPostagem** e **dataPostagem**, referente a cada postagem, mais as listas **tema** com a marcação @ManyToOne, **usuario** com a marcação @ManyToOne e o **comentario** com a marcação @OneToMany onde irão fazer o link com esse.
 
 ### CRUD
  
@@ -79,6 +89,33 @@ A tabela possuirá os atributos **idPostagem**, **tituloPostagem**, **dataPostag
 
 A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois métodos específicos, que buscam pelo id e pelo título.
 
+### JSON
+
+#### Post postagens
+
+{
+    "tituloPostagem": "Exemplo",
+    "tipoAjudaPostagem": "Financeira",
+    "urlImagemPostagem": "https://i.imgur.com/rc9U7wD.png",
+    "descricaoPostagem": "Exemplo de descrição para a postagem."
+}
+
+#### Get postagens 
+
+[
+    {
+        "idPostagem": 1,
+        "tituloPostagem": "Exemplo",
+        "tipoAjudaPostagem": "Financeira",
+        "urlImagemPostagem": "https://i.imgur.com/rc9U7wD.png",
+        "descricaoPostagem": "Exemplo de descrição para a postagem.",
+        "dataPostagem": "2021-04-19T00:00:46.174+00:00",
+        "tema": null,
+        "usuario": null,
+        "comentario": []
+    }
+]
+
 ## ComentarioPostagem
 
  ### Model
@@ -87,10 +124,11 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois 
 |----------|------|-----|
 | idComentario | [PK] long |
 | comentario | String | min = 0, max = 9999
+| dataComentario | Date
 | usuario_id | [FK] long
 | postagem_id | [FK] long
 
-A tabela possuirá os atributos **idComentario** e **comentarios** referente a cada comentário, mais as chaves estrangeiras **usuario**  e **postagem** onde irão fazer o link com esses.
+A tabela possuirá os atributos **idComentario**, **comentario** e **dataComentario** referente a cada comentário, mais as listas **usuario** com a marcação @ManyToOne e a **postagem** com a marcação @ManyToOne onde irão fazer o link com esse.
 
 ### CRUD
  
@@ -103,6 +141,26 @@ A tabela possuirá os atributos **idComentario** e **comentarios** referente a c
 | Delete | /comentarios/{id} | Excluir algum dado pelo ID
 
 A tabela possuirá os end-points básicos (get, post, put e delete) e mais um método específico, que busca pelo id.
+
+### JSON
+
+#### Post comentarios
+
+{
+    "comentario": "Exemplo de comentário para uma postagem."
+}
+
+#### Get comentarios
+
+[
+    {
+        "idComentario": 1,
+        "comentario": "Exemplo de comentário para uma postagem.",
+        "dataComentario": "2021-04-19T00:04:02.978+00:00",
+        "usuario": null,
+        "postagem": null
+    }
+]
 
 ## Usuário
 
@@ -117,8 +175,10 @@ A tabela possuirá os end-points básicos (get, post, put e delete) e mais um m�
 | imagemUsuario | String |
 | tipoUsuario | String |
 | telefoneUsuario | String |
+| postagem_id | [FK] long
+| comentario_id | [FK] long
 
-A tabela possuirá os atributos **ID** referente ao código de cada usuário, **nomeUsuario**, **emailUsuario**, **senhaUsuario**, **imagemUsuario**, **tipoUsuario** e **telefoneUsuario**.
+A tabela possuirá os atributos **ID** referente ao código de cada usuário, **nomeUsuario**, **emailUsuario**, **senhaUsuario**, **imagemUsuario**, **tipoUsuario** e **telefoneUsuario**. Mais as listas **postagem** com marcação @OneToMany e **comentario** com marcação @OneToMany, onde irão fazer o link com esse.
 
 ### CRUD
  
@@ -129,8 +189,6 @@ A tabela possuirá os atributos **ID** referente ao código de cada usuário, **
 | Post | /usuario/cadastrar | Cadastrar um novo usuário
 | Post | /usuario/logar | Logar um usuário existente
 | Put | /usuario | Editar algum dado específico
-
-Os caminhos para cadastrar e logar precisam de autenticação por token.
 
 ### Model UserLogin (apenas para Login)
 | Atributo | Tipo | 
@@ -145,7 +203,7 @@ Os caminhos para cadastrar e logar precisam de autenticação por token.
 
 Criada a model ```UserLogin```, que devolve os dados do usuário logado com o token de autenticação.
 
-```UsuarioRepository``` com busca específica para determinado usuário.
+Criada a ```UsuarioRepository``` com busca específica para determinado usuário.
 
 Criada a package ```Security``` com as classes ```BasicSecurityConfig```, ```UserDetailsImpl``` e ```UserDetailsServiceImpl```, aplicando as regras de negócio que foram determinadas na interface e restringindo a interação sem autenticação para os caminhos ```"/usuario/cadastrar"``` e ```"/usuario/logar"```.
 
@@ -154,28 +212,24 @@ Criada a package ```Service``` com a classe ```UsuarioService``` que encripta a 
 
 ### Json
 
-#### Enviando dados para cadastrar
+#### Post cadastrar
 
 ```json
 {
-    "nomeUsuario": "Gustavo",
-    "emailUsuario": "Gustavo@gmail.com",
+    "nomeUsuario": "Exemple",
+    "emailUsuario": "exemple@gmail.com",
     "senhaUsuario": "123456",
-    "tipoUsuario": "Colaborador",
+    "tipoUsuario": "Empreendedor",
     "telefoneUsuario": "00123451234"
 }
 ```
 
-#### Recebendo dados para logar
+#### Post logar
 
 ```json
 {
-    "nomeUsuario": "Gustavo",
-    "emailUsuario": "Gustavo@gmail.com",
-    "senhaUsuario": "123456",
-    "tipoUsuario": "Colaborador",
-    "telefoneUsuario": "00123451234",     
-    "token": "Basic R3VpbGhlbkBnbWFpbC5jb206MTIzNDU2"
+    "emailUsuario": "exemple@gmail.com",
+    "senhaUsuario": "123456"
 }
 ``` 
 
