@@ -40,7 +40,7 @@ A tabela possuirá os atributos **ID** referente ao código de cada tema e **cat
 
 A tabela possuirá os end-points básicos (get, post, put e delete) e mais dois métodos específicos, que buscam pelo id e pela categoria.
 
-### Json
+### JSON
 
 #### Post tema
 
@@ -222,7 +222,7 @@ Criada a package ```Security``` com as classes ```BasicSecurityConfig```, ```Use
 Criada a package ```Service``` com a classe ```UsuarioService``` que encripta a senha escolhida pelo usuário e guarda no banco de dados.
 
 
-### Json
+### JSON
 
 #### Post cadastrar
 
